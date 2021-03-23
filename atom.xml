@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-21T02:53:56.652Z</updated>
+  <updated>2021-03-23T08:19:50.603Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wikipedia, now I have my own page</title>
+    <link href="http://example.com/2021/03/23/Wikipedia%20page/"/>
+    <id>http://example.com/2021/03/23/Wikipedia%20page/</id>
+    <published>2021-03-23T08:20:00.000Z</published>
+    <updated>2021-03-23T08:19:50.603Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Wikipedia-now-I-have-my-own-user-page"><a href="#Wikipedia-now-I-have-my-own-user-page" class="headerlink" title="Wikipedia, now I have my own user page"></a>Wikipedia, now I have my own user page</h1><p>During the class break today, I was browsing Wikipedia as I usually do. </p><p>Suddenly I just wanna have my own user page.</p><p>So, here we are: <em><a class="link" href="https://en.wikipedia.org/wiki/User:HTsien">User:HTsien - Wikipedia<i class="fas fa-external-link-alt"></i></a></em></p><p>Contact me if any problem.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Wikipedia-now-I-have-my-own-user-page&quot;&gt;&lt;a href=&quot;#Wikipedia-now-I-have-my-own-user-page&quot; class=&quot;headerlink&quot; title=&quot;Wikipedia, now I h</summary>
+      
+    
+    
+    
+    <category term="Life" scheme="http://example.com/categories/Life/"/>
+    
+    
+    <category term="Writing" scheme="http://example.com/tags/Writing/"/>
+    
+  </entry>
   
   <entry>
     <title>Bioinformatics - Lecture 3 A Brief History of Sequencing Development</title>
