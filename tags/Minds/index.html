@@ -9,7 +9,7 @@
     
     <title>
         
-            First Post on My Blog |
+            Tag: Minds |
         
         Tsien&#39;s Blog
     </title>
@@ -89,7 +89,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/tags"
                             >
                                 TAGS
@@ -138,7 +138,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/tags">TAGS</a>
                 </li>
             
@@ -158,180 +158,42 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">First Post on My Blog</span>
+    <div class="tag-container">
+        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;Minds
         </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="/images/dog.jpg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">Hongjie Harry QIAN 钱鸿颉</span>
-                        
-                            <span class="author-label">Lv3</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-03-01 03:00:00
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Life/">Life</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Life/">Life</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <p>Greetings, mates!</p>
-<p>I believe it would be a wonderful journey to write on the Internet in my own spot.</p>
-<p>Thank you for any support and suggestions!😄 </p>
-
-        </div>
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/03/03/A%20possible%20biosynthesis%20pathway%20of%20arctigenin%20in%20%20Arctium%20lappa%20L/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">A possible biosynthesis pathway of arctigenin in Arctium lappa L.</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
-    </div>
-    
-
-        
+        <div class="tag-post-list">
             
-    <div class="valine-container">
-        <script 
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script >
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 't9EbBLzyzoNuQmc2EMYFgEnK-gzGzoHsz',
-                    appKey: 'Y76Ku1lXe8Fs04iJbQIt6dKy',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: 'Thanks for any support!:-D',
-                    lang: 'en'.toLowerCase()
-                });
-
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
-
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = 'Hongjie Harry QIAN 钱鸿颉';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
-            }
-
-            if ('false') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
-            }
-        </script>
-    </div>
-
-
-
-        
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2021</span>
+                <span class="archive-year-post-count">[1]</span>
+            </div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/04/05/Minds%20in%20the%20end%20of%20the%20vacation/"
+                        >Minds in the end of the vacation</a>
+                        <span class="article-date">04-05</span>
+                    </li>
+                
+            </ul>
+        </section>
     
 </div>
 
-            </div>
-        
+        </div>
+    </div>
+
+    <div class="tag-paginator">
+        <div class="paginator">
+    
+
+    
+</div>
+
     </div>
 </div>
 
@@ -377,27 +239,6 @@
     </div>
 
     
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
-</div>
-
-        </div>
-    
 
     <div class="right-bottom-side-tools">
         <div class="side-tools-container">
@@ -442,14 +283,6 @@
 
     </div>
 
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        
-    </div>
-</div>
-        </aside>
     
 
     <div class="image-viewer-container">
@@ -503,8 +336,6 @@
 
 
 <div class="post-scripts">
-    
-        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
     
 </div>
 
