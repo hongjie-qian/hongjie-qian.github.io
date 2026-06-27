@@ -1,0 +1,29 @@
+<svg viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract layered curves">
+  <defs>
+    <linearGradient id="c3bg" x1="0" y1="0" x2="1" y2="0.9">
+      <stop offset="0" stop-color="#11163a"/>
+      <stop offset="0.5" stop-color="#20275c"/>
+      <stop offset="1" stop-color="#2f7d8a"/>
+    </linearGradient>
+    <linearGradient id="c3band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#57cdda" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#57cdda" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#c3bg)"/>
+
+  <g>
+    <path d="M0 1200 L0 720 C 180 560, 340 560, 470 660 C 620 775, 760 560, 900 600 L 900 1200 Z" fill="url(#c3band)" opacity="0.55"/>
+    <path d="M0 1200 L0 840 C 180 700, 320 720, 470 800 C 640 890, 760 720, 900 770 L 900 1200 Z" fill="#2f7d8a" opacity="0.4"/>
+    <path d="M0 1200 L0 960 C 200 850, 340 870, 480 930 C 650 1000, 780 870, 900 910 L 900 1200 Z" fill="#1b6473" opacity="0.55"/>
+  </g>
+
+  <g fill="none" stroke="#dff4f7" stroke-opacity="0.35" stroke-width="1.4">
+    <path d="M0 720 C 180 560, 340 560, 470 660 C 620 775, 760 560, 900 600"/>
+    <path d="M0 840 C 180 700, 320 720, 470 800 C 640 890, 760 720, 900 770"/>
+  </g>
+
+  <circle cx="470" cy="660" r="5" fill="#dff4f7" fill-opacity="0.9"/>
+  <circle cx="760" cy="560" r="4" fill="#57cdda" fill-opacity="0.85"/>
+</svg>

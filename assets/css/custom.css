@@ -1,0 +1,257 @@
+/*
+	Custom polish + theme layer for Ethereal
+	-----------------------------------------------------------------------------
+	Loaded AFTER main.css. Additive only — never edits the compiled template, so
+	it survives a SASS recompile and is safe to delete. Two parts:
+
+	  PART A  Structural polish (entry layout, logo sizing, spacing rhythm)
+	  PART B  Theme refresh (font pairing + Indigo / Teal / Aqua palette)
+
+	The whole site uses white text, so every panel colour below stays mid-to-dark
+	to keep that text legible.
+
+	Palette tokens (change here, they propagate to every rule below):
+	  ink        #0e1330   page background, darkest
+	  indigo-1   #15193b
+	  indigo-2   #28306f
+	  teal       #2f7d8a
+	  aqua       #57cdda   accent: links on hover, heading underline, highlights
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ===========================================================================
+   PART A — STRUCTURAL POLISH
+   (replaces the repeated inline styles, per-image width hacks and
+    negative-margin spacing band-aids in the old markup)
+   =========================================================================== */
+
+	.content .lede { margin-bottom: 0.5rem; }
+	.content .lede + ul { margin-top: 0.25rem; }
+
+	.entry { margin: 0 0 1.75rem 0; }
+	.entry:last-child { margin-bottom: 0; }
+
+	.entry-title { margin-bottom: 0.25rem; }
+
+	.entry-sub {
+		font-size: 0.9rem;
+		opacity: 0.8;
+		margin: 0 0 0.5rem 0;
+	}
+
+	/* Organisation row: name left, logo right, vertically centered. */
+	.entry-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 0 0 0.4rem 0;
+	}
+
+	.entry-org { font-style: italic; }
+	.entry-date { font-style: italic; opacity: 0.8; white-space: nowrap; }
+
+	/* Logos capped by HEIGHT so mixed aspect ratios line up consistently. */
+	.entry-logo {
+		height: 2.3rem;
+		width: auto;
+		max-width: 42%;
+		object-fit: contain;
+		flex-shrink: 0;
+	}
+
+	.content ul li { margin-bottom: 0.35rem; }
+	.content ul li:last-child { margin-bottom: 0; }
+
+	@media screen and (max-width: 736px) {
+		.entry-head { flex-direction: column; align-items: flex-start; }
+		.entry-logo { height: 2rem; max-width: 55%; margin-top: 0.4rem; }
+	}
+
+/* ===========================================================================
+   PART B — THEME REFRESH
+   =========================================================================== */
+
+/* --- Typography -------------------------------------------------------------
+   Body -> Inter, Headings -> Space Grotesk. (main.css still loads Source Sans
+   Pro; these overrides win. Removing that @import in main.css would save one
+   font request but is optional.) */
+	body, input, select, textarea, button {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Space Grotesk', 'Inter', sans-serif;
+		letter-spacing: -0.02em;
+	}
+
+/* --- Page background --------------------------------------------------------
+   Deep ink + the existing noise texture; drops the template's stock photo. */
+	body:after {
+		background-color: #0e1330;
+		background-image: url("../../images/overlay.png");
+		background-repeat: repeat;
+		background-size: 128px 128px;
+	}
+
+/* --- Banner panels (the .color0 hero gradient) ----------------------------- */
+	#wrapper .panel > *.color0,
+	#wrapper .panel.color0 {
+		background-image:
+			url("../../images/overlay.png"),
+			linear-gradient(40deg, #15193b 10%, #28306f 52%, #2f7d8a 100%);
+		background-size: 128px 128px, auto;
+	}
+
+/* --- Contact panel + its intro block (.color4-alt / .color4) --------------- */
+	#wrapper .panel.color4-alt,
+	#wrapper .panel > *.color4-alt {
+		background-image:
+			url("../../images/overlay.png"),
+			linear-gradient(40deg, #10153a, #1d2458);
+		background-size: 128px 128px, auto;
+	}
+
+	#wrapper .panel > *.color4,
+	#wrapper .panel.color4 {
+		background-image:
+			url("../../images/overlay.png"),
+			linear-gradient(40deg, #28306f, #2f7d8a);
+		background-size: 128px 128px, auto;
+	}
+
+/* --- Links + heading underline accent -------------------------------------- */
+	a:hover { color: #57cdda; }
+	#wrapper .major:after { background-color: #57cdda; }
+
+/* --- Image overlays --------------------------------------------------------
+   Banner portrait keeps a soft indigo wash; spotlight art gets only a faint
+   wash so the new SVG panels read clean instead of muddy. */
+	#wrapper .image.filtered:after {
+		background-image:
+			url("../../images/overlay.png"),
+			linear-gradient(40deg, rgba(21,25,59,0.34) 20%, rgba(40,48,111,0.28) 55%, rgba(47,125,138,0.22));
+		background-size: 128px 128px, auto;
+	}
+
+	#wrapper .image.filtered.tinted:after {
+		background-image:
+			url("../../images/overlay.png"),
+			linear-gradient(40deg, rgba(14,19,48,0.30), rgba(47,125,138,0.16));
+		background-size: 128px 128px, auto;
+	}
+
+/* ===========================================================================
+   PART C — LAYOUT v2  (continuous canvas, floating content, visible logos)
+   ---------------------------------------------------------------------------
+   Pages 2+ float DIRECTLY on one shared flowing-curve canvas — no per-panel
+   boxes, so the curves stay continuous with no seams or gaps. Content fills
+   each panel's width (adjacent panels abut) and is vertically centred when it
+   fits / top-anchored when it's tall. Page 1 keeps its opaque gradient + photo.
+   =========================================================================== */
+
+/* --- Shared seamless curve canvas (desktop; mobile scrolls vertically). --- */
+	@media screen and (min-width: 737px) {
+		#wrapper {
+			background-color: #0e1330;
+			background-image: url("../../images/curves-bg.svg");
+			background-repeat: repeat-x;
+			background-size: auto 100%;
+			background-position: left center;
+		}
+	}
+
+/* --- Drop the panel boxes on pages 2+ so content floats on the canvas. --- */
+	#wrapper > .panel:not(:first-child) .content.color0,
+	#wrapper > .panel.spotlight:not(:first-child) .content,
+	#wrapper > .panel.color4-alt,
+	#wrapper > .panel.color4-alt > .color4 {
+		background-image: none;
+		background-color: transparent;
+	}
+
+/* --- Spotlight content fills its panel width -> adjacent panels touch, no
+       empty side-zone that reads as a gap. --- */
+	#wrapper > .panel.spotlight:not(:first-child) .content {
+		width: 100%;
+	}
+
+/* --- Vertical placement: centre when it fits, top-anchor when tall (so
+       nothing clips above the scroll origin). flex-start is the fallback. --- */
+	#wrapper > .panel:not(:first-child) .content {
+		justify-content: flex-start;
+		justify-content: safe center;
+		padding: 2.75rem 3rem;
+		font-size: 0.95rem;
+	}
+
+	#wrapper > .panel:not(:first-child) .content > p { margin-bottom: 0.85rem; }
+	#wrapper > .panel:not(:first-child) .entry { margin-bottom: 1.2rem; }
+
+/* --- Tables (Awards etc.): tighter rows. --- */
+	#wrapper .table-wrapper table { font-size: 0.85rem; }
+	#wrapper .table-wrapper table th,
+	#wrapper .table-wrapper table td { padding: 0.4rem 0.8rem; }
+
+/* --- Logos on light chips so dark wordmarks (UC San Diego, Arcus) stay
+       legible on the dark canvas; larger overall, with extra room for the
+       stacked Rutgers PETS+HOPE lockup. --- */
+	/* All logos knocked out to uniform white on the dark canvas (the look you
+	   liked). Heights are tuned per-logo to balance visual weight; the very wide
+	   J&J wordmark gets a small height + width cap so it doesn't dominate.
+	   NOTE on Strathclyde: a full-colour raster crest can't be converted to
+	   white *line-art* by CSS (flattening only yields a solid silhouette), so it
+	   renders as a white shield. For crisp white lines, drop in Strathclyde's
+	   official white / reversed logo and turn its filter off (see last line). */
+	#wrapper .entry-logo {
+		height: 2.8rem;
+		max-width: 56%;
+		filter: brightness(0) invert(1);
+		opacity: 0.88;
+	}
+
+	#wrapper .entry-logo[src*="jnj"]         { height: 1.4rem; max-width: 30%; }
+	#wrapper .entry-logo[src*="CPU"]         { height: 2.6rem; }
+	#wrapper .entry-logo[src*="arcus"]       { height: 3.2rem; }
+	#wrapper .entry-logo[src*="hwsph"]       { height: 3.5rem; }
+	#wrapper .entry-logo[src*="Strathclyde"] { height: 4.8rem; max-width: 64%; filter: none; opacity: 1; }
+	#wrapper .entry-logo[src*="PETS_HOPE"]   { height: 6rem; max-width: 76%; }
+
+	@media screen and (max-width: 736px) {
+		#wrapper .entry-logo { height: 2.3rem; max-width: 64%; }
+		#wrapper .entry-logo[src*="jnj"]       { height: 1.2rem; }
+		#wrapper .entry-logo[src*="PETS_HOPE"] { height: 4.4rem; max-width: 86%; }
+		#wrapper .entry-logo[src*="Strathclyde"] { height: 3.2rem; max-width: 72%; }
+	}
+
+/* --- Wider banner content (pages 2+): less wrapping, so prose isn't cramped
+       and the multi-degree Education panel fits vertically without clipping. */
+	#wrapper > .panel.banner:not(:first-child) .content {
+		width: 50rem;
+	}
+
+/* --- Education: all three lower degrees in TWO columns on one page, so they
+       fit a single screen without clipping. Wider panel; each degree stays
+       intact across the column break; the block stays vertically centred. --- */
+	#wrapper > .panel.banner:not(:first-child) .content.edu-panel { width: 64rem; justify-content: center; }
+	#wrapper .panel.edu-section { align-items: center; }
+	#wrapper .edu-panel .edu-cols {
+		display: flex;
+		gap: 3.5rem;
+		align-items: center;
+		margin: auto 0;
+	}
+	#wrapper .edu-panel .edu-col { flex: 1; min-width: 0; }
+	#wrapper .edu-panel .edu-col .entry { margin-bottom: 1.6rem; }
+	#wrapper .edu-panel .edu-col .entry:last-child { margin-bottom: 0; }
+	@media screen and (max-width: 736px) {
+		#wrapper > .panel.banner:not(:first-child) .content.edu-panel { width: auto; }
+		#wrapper .edu-panel .edu-cols { flex-direction: column; gap: 0; }
+	}
+
+/* --- Contact: size the ORCID iD (academicons) to match the Font Awesome
+       icons in the row. --- */
+	ul.icons li a.ai:before {
+		font-size: 1.25em;
+	}
