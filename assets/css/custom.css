@@ -255,3 +255,43 @@
 	ul.icons li a.ai:before {
 		font-size: 1.25em;
 	}
+
+/* =====================================================================
+   MOBILE FIX (≤736px) — continuous backdrop + no horizontal overflow
+   The desktop continuity (curves + transparent panels) was scoped to
+   ≥737px only, so on phones each panel showed its own gradient (seams),
+   and a couple of wide elements (the Awards table, long links) pushed
+   the page wider than the screen. This block restores a coherent,
+   single-column, no-sideways-scroll mobile view.
+   ===================================================================== */
+@media screen and (max-width: 736px) {
+
+	/* 1) never allow sideways scrolling */
+	html, body { overflow-x: hidden; max-width: 100%; }
+	#page-wrapper,
+	#wrapper,
+	#wrapper > .panel,
+	#wrapper .panel .content { max-width: 100% !important; }
+
+	/* 2) one continuous backdrop down the whole stacked page (kill seams) */
+	#wrapper {
+		background: linear-gradient(180deg, #0e1330 0%, #1a2150 48%, #0e1330 100%) !important;
+	}
+	#wrapper .panel,
+	#wrapper .panel .content,
+	#wrapper .panel.color0,     #wrapper .panel > *.color0,
+	#wrapper .panel.color4,     #wrapper .panel > *.color4,
+	#wrapper .panel.color4-alt, #wrapper .panel > *.color4-alt {
+		background-image: none !important;
+		background-color: transparent !important;
+	}
+
+	/* 3) long links / words / Chinese must wrap instead of overflowing */
+	#wrapper .content { overflow-wrap: anywhere; }
+
+	/* 4) keep the Awards table within the screen */
+	#wrapper .table-wrapper { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+	#wrapper .table-wrapper table { width: 100%; }
+	#wrapper .table-wrapper th,
+	#wrapper .table-wrapper td { white-space: normal; overflow-wrap: normal; word-break: normal; }
+}
