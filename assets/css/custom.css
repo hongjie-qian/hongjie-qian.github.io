@@ -18,7 +18,7 @@
 	  aqua       #57cdda   accent: links on hover, heading underline, highlights
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ===========================================================================
    PART A — STRUCTURAL POLISH
@@ -82,8 +82,8 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Space Grotesk', 'Inter', sans-serif;
-		letter-spacing: -0.02em;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		letter-spacing: -0.015em;
 	}
 
 /* --- Page background --------------------------------------------------------
@@ -220,9 +220,9 @@
 
 	@media screen and (max-width: 736px) {
 		#wrapper .entry-logo { height: 2.3rem; max-width: 64%; }
-		#wrapper .entry-logo[src*="jnj"]       { height: 1.2rem; }
-		#wrapper .entry-logo[src*="PETS_HOPE"] { height: 4.4rem; max-width: 86%; }
-		#wrapper .entry-logo[src*="Strathclyde"] { height: 3.2rem; max-width: 72%; }
+		#wrapper .entry-logo[src*="jnj"]       { height: 2rem; max-width: 74%; }
+		#wrapper .entry-logo[src*="PETS_HOPE"] { height: 5.8rem; max-width: 92%; }
+		#wrapper .entry-logo[src*="Strathclyde"] { height: 4.4rem; max-width: 82%; }
 	}
 
 /* --- Wider banner content (pages 2+): less wrapping, so prose isn't cramped
@@ -247,7 +247,8 @@
 	#wrapper .edu-panel .edu-col .entry:last-child { margin-bottom: 0; }
 	@media screen and (max-width: 736px) {
 		#wrapper > .panel.banner:not(:first-child) .content.edu-panel { width: auto; }
-		#wrapper .edu-panel .edu-cols { flex-direction: column; gap: 0; }
+		#wrapper .edu-panel .edu-cols { flex-direction: column; gap: 2.4rem; }
+		#wrapper .edu-panel .edu-col .entry { margin-bottom: 3.6rem; }
 	}
 
 /* --- Contact: size the ORCID iD (academicons) to match the Font Awesome
@@ -302,3 +303,45 @@
 	#wrapper .table-wrapper th,
 	#wrapper .table-wrapper td { white-space: normal; overflow-wrap: normal; word-break: normal; }
 }
+
+/* =====================================================================
+   HERO breathing room (desktop ≥737px)
+   The intro panel is a fixed 32rem tall. With three affiliation bullets
+   the content was filling (and slightly overflowing) the panel, so it
+   read as cramped. Trim type sizes / line-height / block spacing so it
+   sits comfortably with air around it.
+   ===================================================================== */
+@media screen and (min-width: 737px) {
+	#wrapper > .panel:first-child .content h1.major {
+		font-size: 2rem;
+		line-height: 1.14;
+		margin-bottom: 1.8rem;
+	}
+	#wrapper > .panel:first-child .content h1.major:after {
+		bottom: -0.5rem;   /* lift the accent line up toward the name so it
+		                      leaves ~1.3rem of air before the lede text */
+	}
+	#wrapper > .panel:first-child .content .lede {
+		font-size: 0.98rem;
+		line-height: 1.5;
+		margin-bottom: 0.85rem;
+	}
+	#wrapper > .panel:first-child .content ul {
+		margin: 0 0 0.85rem;
+	}
+	#wrapper > .panel:first-child .content ul li {
+		line-height: 1.4;
+		margin-bottom: 0.3rem;
+	}
+	#wrapper > .panel:first-child .content > p {
+		font-size: 0.93rem;
+		line-height: 1.5;
+		margin-bottom: 0.75rem;
+	}
+	#wrapper > .panel:first-child .content > p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/* Hero keeps its accent underline (with a little breathing room below,
+   set via the h1 margin in the desktop block above). */
